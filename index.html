@@ -112,12 +112,35 @@
       <div class="rightSide">
         <h1 class="title">NEWSLETTER</h1>
         <p>To recieve tips on how to grow your community, sign up to our weekly newsletter. We'll never send you spam or pass on your email address</p>
-        <form>
-          <input type="email" placeholder="Enter your email">
-          <button>Subscribe</button>
-        </form>
+        <div>
+          <div class="email">
+            <input id="email" type="email" placeholder="Enter your email">
+            <span class="error" id="error"></span>
+          </div>
+          <button id="submit">Subscribe</button>
+        </div>
       </div>
     </div>
   </footer>
+  <script>
+    let email = document.getElementById('email')
+    let submit = document.getElementById('submit')
+    let emailregex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+
+    submit.addEventListener('click', (e) => {
+      if(email.value.match(emailregex)) {
+        email.value = ''
+        // email.style.border = '1px solid red'
+        // alert("Please enter a valid email address")
+        email.classList.add('borderError')
+        document.getElementById('error').innerHTML = "Please enter a valid email address"
+      }
+      else if(email.value == ""){
+        // alert("Please enter a email")
+        email.classList.add('borderError')
+        document.getElementById('error').innerHTML = "Please enter a email"
+      }
+    })
+  </script>
 </body>
 </html>

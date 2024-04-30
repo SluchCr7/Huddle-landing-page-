@@ -107,7 +107,7 @@ body{
     }
 }
 .sections{
-    @include flex(column,center ,20px);
+    @include flex(column,center ,10rem);
     width: 100%;
     padding: 2rem 8rem;
     margin-top: 2rem;
@@ -222,17 +222,24 @@ footer{
                 @include font(16px , 400 , var(--Very-Pale-Blue));
                 width: 50%;
             }
-            form{
-                @include flex(row,center ,20px);
-                input{
-                    @include font(16px , 400 , var(--Light-Red));
-                    padding: 10px;
-                    border-radius: 5px;
-                    border: none;
-                    background-color: var(--Very-Pale-Blue);
-                    width: 350px;
-                    &:focus{
-                        outline: none;
+            div{
+                @include flex(row,start ,20px);
+                .email{
+                    @include flex(column,start ,5px);
+                    input{
+                        @include font(16px , 400 , var(--Light-Red));
+                        padding: 10px;
+                        border-radius: 5px;
+                        border: none;
+                        background-color: var(--Very-Pale-Blue);
+                        width: 350px;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                    .error{
+                        color: red;
+                        font-size: 12px;
                     }
                 }
                 button{
@@ -323,7 +330,7 @@ footer{
                 }
             }
             .rightSide{
-                form{
+                div{
                     flex-direction: column;
                     align-items: start;
                     gap: 15px;
@@ -331,4 +338,7 @@ footer{
             }
         }
     }
+}
+.borderError{
+    border: 2px solid var(--Light-Red) !important;
 }
